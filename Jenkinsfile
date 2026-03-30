@@ -11,7 +11,7 @@ pipeline {
     }
     post {
         always {
-            echo 'This will always run after the stage.'
+            echo 'This will always run after the stage!'
         }
         failure {
             echo 'This will run only if the stage fails.'
