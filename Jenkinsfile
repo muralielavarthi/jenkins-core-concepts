@@ -1,6 +1,6 @@
 pipeline {
     agent {label 'nodejs-20'}
-    environment { #global environment variables
+    environment { 
         NODE_ENV = 'production'
     }
 
