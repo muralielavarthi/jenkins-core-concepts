@@ -1,20 +1,18 @@
 pipeline {
-   agent { label ‘nodejs-20’ }
+    agent {label 'nodejs-20'}
+    environment { 
+        NODE_ENV = 'production'
+    }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
+                script {
+                    sh """
+                    echo "Build"
+                    echo "NODE_ENV: $NODE_ENV"
+                    """
+                }
             }
         }
     }
