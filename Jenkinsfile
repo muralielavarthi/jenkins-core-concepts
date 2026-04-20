@@ -1,30 +1,21 @@
 pipeline {
-    agent {label 'nodejs-20'}
-    environment { 
-        NODE_ENV = 'production'
-    }
+   agent { label ‘nodejs-20’ }
 
     stages {
         stage('Build') {
             steps {
-                script {
-                    sh """
-                    echo "Build"
-                    echo "NODE_ENV: $NODE_ENV"
-                    """
-                }
+                echo 'Building...'
             }
         }
-    }
-    post {
-        always {
-            echo 'This will always run after the stage!'
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
         }
-        failure {
-            echo 'This will run only if the stage fails.'
-        }
-        success {
-            echo 'This will run only if the stage succeeds.'
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
         }
     }
 }
