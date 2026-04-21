@@ -2,7 +2,6 @@ pipeline{
     agent {label 'nodejs-20'}
     environment {
         NODE_ENV = 'production'
-        Project = 'Jenkins Pipeline Example'
     }
     stages{
         stage('Build') {
