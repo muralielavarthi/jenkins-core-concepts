@@ -6,9 +6,6 @@ pipeline {
         PROJECT   = 'calc'
     }
 
-    parameters {
-        choice(name: 'DEPLOY_ENV', choices: ['dev', 'staging', 'production'], description: 'Select target environment')
-    }
 
     stages {
         stage('Deploy') {
