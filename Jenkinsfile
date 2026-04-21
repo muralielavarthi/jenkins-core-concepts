@@ -1,21 +1,21 @@
 pipeline {
     agent { label 'nodejs-20' }
 
-    parameters {
-        choice(name: 'DEPLOY_ENV', choices: ['dev', 'staging', 'production'], description: 'Select target environment')
+    environment {
+        DEPLOY_ENV = 'production'
     }
 
     stages {
         stage('Deploy') {
             when {
-                expression { params.DEPLOY_ENV == 'production' }
+                expression { env.DEPLOY_ENV == 'production' }
             }
             input {
                 message 'Ready to deploy?'
                 ok 'Yes, deploy now'
             }
             steps {
-                echo "Deploying ${params.DEPLOY_ENV} environment"
+                echo "Deploying ${env.DEPLOY_ENV} environment"
             }
         }
     }
